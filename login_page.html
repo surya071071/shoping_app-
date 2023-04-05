@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login and registration</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url(b1.jpg);
+            background-size: cover;
+            background-position: center;
+            font-family: sans-serif;
+        }
+
+        .loginbox {
+            width: 379px;
+            height: 610px;
+            background: #000;
+            color: #fff;
+            top: 1%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, 10%);
+            box-sizing: border-box;
+            padding: 70px 30px;
+            margin-bottom: 50px;
+
+        }
+
+        .avtar {
+            width: 37%;
+            height: 23%;
+            border-radius: 93%;
+            position: absolute;
+            top: -50px;
+            left: 100px
+        }
+
+        h1 {
+
+            margin-top: 50px;
+            padding: 0 0 30px;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .loginbox p {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+        }
+
+        .loginbox input {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+
+        .loginbox input[type="text"],
+        input[type="password"] {
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .loginbox input[type="submit"] {
+            border: none;
+            outline: none;
+            height: 40px;
+            background: #fb2525;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 20px;
+            width: 90%;
+
+        }
+
+        .loginbox input[type="submit"]:hover {
+            cursor: pointer;
+            background: #0d5f02;
+            color: #000;
+
+        }
+
+        .loginbox g {
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 20px;
+            color: darkgrey;
+
+        }
+
+        .loginbox a:hover {
+            color: #ffc107;
+        }
+
+        .cap input {
+            width: 45%;
+         
+        }
+
+        .cap #cap_input {
+
+            margin-left: 10px;
+        }
+        .cap #cap_read{
+            border: 2px solid pink;
+            background-color:rgb(95, 95, 83);
+            text-align: center;
+            font-weight: bold;
+           
+        }
+        h6{
+            margin: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loginbox">
+        <img src="avtar.png" class="avtar">
+
+        <h1>Login Here</h1>
+        </a>
+        <form action="index.html">
+            <p>Username</p>
+            <input type="text" name="" placeholder="Enter Username">
+            <p>Password</p>
+            <input type="password" name="" placeholder="Enter Password">
+            <br>
+            <label>Enter Captcha</label>
+            <div class="cap">
+                <div>
+                    <input type="text" id="cap_read" readonly>
+
+                    <input type="text" id="cap_input">
+                </div>
+                <input onclick="validcap()" type="Submit" name="" value="login">
+                <h6>Captcha not visible <img src="refresh.jpg" width="40px" onclick="cap()"></h6>
+                <a href="g">Lost your password?</a><br>
+                <a href="g"> Don't have an accoumt?</a>
+            </div>
+        </form>
+
+        <script type="text/javascript">
+            function cap() {
+                var alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V'
+                    , 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+                    'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '$', '%', '^', '&', '*', '+'];
+                var a = alpha[Math.floor(Math.random() * 71)];
+                var b = alpha[Math.floor(Math.random() * 71)];
+                var c = alpha[Math.floor(Math.random() * 71)];
+                var d = alpha[Math.floor(Math.random() * 71)];
+                var e = alpha[Math.floor(Math.random() * 71)];
+                var f = alpha[Math.floor(Math.random() * 71)];
+
+                var final = a + b + c + d + e + f;
+                document.getElementById("cap_read").value = final;
+            }
+            function validcap() {
+                var stg1 = document.getElementById('cap_read').value;
+                var stg2 = document.getElementById('cap_input').value;
+                if (stg1 == stg2) {
+                    alert("Form is validated Succesfully");
+                    return true;
+                } else {
+                    alert("Please enter a valid captcha");
+                    return false;
+                }
+            }
+        </script>
+</body>
+
+</html>

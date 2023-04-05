@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <!-- java script -->
+    <script>
+       function validateform()
+       {
+            var fn = document.getElementById("fname").value;
+            var ln = document.getElementById("lname").value;
+            var pswd = document.getElementById("password").value;
+            var cnpswd = document.getElementById("confirm_password").value;
+            
+           
+           var ctry=document.forms["regform"]["country"].value; 
+
+           if(fn==null||fn=="")
+           {
+                document.getElementById("fnmessage").innerHTML = "**Fill the first name please!";  
+                return false;  
+           } 
+          
+           else if(ln==null||ln=="")
+           {
+                document.getElementById("lnmessage").innerHTML = "**Fill the last name please!";  
+                return false; 
+
+           }
+           else if(ctry.selectedIndex==0)
+           {
+               window.alert("select your country");
+               return false;
+
+           }
+           else if(pswd == "")
+            {  
+                document.getElementById("psmessage").innerHTML = "**Fill the password please!";  
+                return false;  
+            }  
+   
+
+            else if(pswd.length < 5) 
+            {  
+            document.getElementById("psmessage").innerHTML = "**Atleast five words ";  
+             return false;  
+             }  
+           else if(cnpswd == "")
+            {  
+                document.getElementById("psmessage").innerHTML = "**Confirm password !";  
+                return false;  
+            }  
+   
+
+            else if(cnpswd.length < 5) 
+            {  
+                document.getElementById("cnpsmessage").innerHTML = "**Atleast five word";  
+             return false;  
+             } 
+
+            else if(pswd!=cnpswd)
+            {
+                document.getElementById("cnpsmessage").innerHTML = "**please enter same passaword";  
+             return false; 
+            }
+            
+            } 
+    </script>
+    
+
+
+    <!-- css use -->
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: url(b1.jpg);
+            background-size:cover ;
+            background-position: center;
+            font-family: sans-serif;
+            bottom: 1%;
+        }
+        .Registration
+        {
+            width: auto;
+            height: auto;
+            background: rgb(196, 248, 76);
+            color: rgb(12, 11, 11);
+            top: 1%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, 10%);
+            box-sizing: border-box;
+            padding: 70px 30px;
+            margin-bottom: 50px;
+
+            
+
+        }
+        h1{
+         
+            margin-bottom: 10px;
+            padding: 0 0 30px;
+            text-align: center;
+            font-size: 35px;
+        }
+        .Registration label{
+            margin-left:0;
+            padding: 0;
+            font-weight: bold;
+            
+        }
+        .Registration  input{
+            margin-left: 20px;
+            margin-bottom: 20px;
+           border: none;
+           border-bottom: 1px solid white;
+           background: transparent;
+           outline: none;
+           text-align: center
+           
+        }
+        .Registration input[type="email"],input[type="password"]{
+            width: 60%;
+        }
+        input[type=submit]
+        {
+            
+            text-align: center;
+           width: 50%;
+        
+           background-color: #f52207;
+           color: white; 
+            padding: 15px 20p;
+            border: none;
+            border-radius: 28px;
+            cursor: pointer;
+            font-size: 30px;
+            margin-left: 120px;
+        }
+        
+        input[type=submit]:hover
+        {
+            background-color: #0f6b02;
+        }
+        
+        
+       
+    </style>
+</head>
+<body>
+    <div class="Registration">
+        <h1> Registration form</h1> 
+        <form  name="regform"  action="login_page.html"  onsubmit="return validateform()">
+
+            <!-- name details -->
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Enter First Name">
+            <span id = "fnmessage" style="color:red"> </span> 
+            <br><br>
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Enter Last Name">
+            <span id = "lnmessage" style="color:red"> </span> 
+            <br><br>
+
+            <!-- gender -->
+            <label for="gender">Gender  </label>
+            &nbsp;&nbsp;  &nbsp;&nbsp;Male <input type="radio"  name="mygender" id="gender"  >  &nbsp;&nbsp;&nbsp;&nbsp;Female <input type="radio" name="mygender"
+                id="gender"> &nbsp;&nbsp; &nbsp;&nbsp;other <input type="radio" name="mygender" id="gender"required>
+            <br><br>
+
+            <!-- date of birth -->
+            <label for="date_of_birth">Date of Birth</label>
+            <input type="date" name="date of birth" id="date_of_birth"required>
+            <span id = "dobmessage" style="color:red"> </span>
+            <br><br>
+
+            <!-- email address -->
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"placeholder="Enter your email address eg:Username@gmail.com">
+            <br><br>
+            <!-- contact details -->
+           
+            <label for="contact no">Contact No.</label>
+            <input type="tel"  id="contact no"name="contact no"placeholder="eg:- 1234567890"pattern="[0-9]{10}"
+            required >
+            <span id = "cntcmessage" style="color:red"> </span> 
+           
+
+           
+           
+            <!-- country -->
+            
+            <label for="country">Country</label>
+            <select name="country" id="country"placeholder="Select">
+            <option value="india">India</option>
+            <option value="usa">USA</option>
+            <option value="japan">JAPAN</option>
+            <option value="america">AMERICA</option></select>
+            <br><br>
+            
+            <!-- for passaword -->
+            <label for="passaword">Password</label>
+            <input type="password" placeholder="Create your  Password(size sgould be greater than 5)" id="password" required>
+            <span id = "psmessage" style="color:red"> </span> 
+            
+            <br><br>
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" placeholder="Please Again enter your passaword" id="confirm_password" required>
+            <span id = "cnpsmessage" style="color:red"> </span> 
+            <br><br><br>
+    
+            <!-- submit -->
+            <tr>
+                
+            <td colspan="2"><input type="submit" value="Submit"></td>
+        </a>
+            </tr>
+        </form>
+    </div>
+    
+ 
+     </script>
+
+</body>
+</html>
